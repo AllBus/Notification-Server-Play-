@@ -1,0 +1,44 @@
+# DC schema
+ 
+# --- !Ups
+
+
+CREATE TABLE PROJECT (
+    ID integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NAME varchar(255) NOT NULL
+);
+
+
+CREATE TABLE TASK (
+    ID integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    COLOR varchar(255) NOT NULL,
+    STATUS varchar(255) NOT NULL,
+    PROJECT integer NOT NULL,
+    FOREIGN KEY (PROJECT) REFERENCES PROJECT (ID)
+);
+
+CREATE TABLE EVENTS_TABLE (
+    "id" integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    "color" varchar(255) NOT NULL,
+	"name" TEXT NOT NULL,
+    "kind" TEXT NOT NULL,
+	"date" BIGINT NOT NULL,
+    "duration" BIGINT NOT NULL,
+    "image" TEXT NOT NULL,
+    "uri" TEXT NOT NULL,
+    "info" TEXT NOT NULL,
+    "shortInfo" TEXT NOT NULL
+
+);
+
+CREATE TABLE DATES_TABLE (
+    "id" integer NOT NULL PRIMARY KEY,
+	"date" BIGINT NOT NULL
+)
+ 
+# --- !Downs
+
+DROP TABLE EVENTS_TABLE;
+DROP TABLE TASK;
+DROP TABLE PROJECT;
+

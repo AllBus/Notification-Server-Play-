@@ -1,0 +1,32 @@
+
+
+
+GET     /                                   controllers.Application.listProjects
+PUT     /projects/:name                     controllers.Application.createProject(name: String)
+GET     /projects/list                      controllers.Application.listProjects
+GET     /projects/:id                       controllers.Application.projects(id: Long)
+PUT     /projects/:id/:name                 controllers.Application.addTaskToProject(name: String, id: Long)
+
+PATCH   /tasks/:id                          controllers.Application.modifyTask(id: Long, color:Option[String] ?= None)
+DELETE  /projects/:name                     controllers.Application.delete(name: String)
+
+PUT		/events							 	controllers.EventController.putEvent
+POST	/events/add						 	controllers.EventController.putEvent
+POST	/eventWithImage						controllers.EventController.putEventWithImage
+
+GET		/events/now/:time/					controllers.EventController.listLastTime(time:Long)
+GET		/events/now							controllers.EventController.list
+GET		/events/checkLastTime/:time 		controllers.EventController.checkLastTime(time:Long)
+#GET		/eventConstructor					controllers.Application.eventConstructor
+GET		/event/:id				 			controllers.EventController.showEvent(id:Long)
+#DELETE  /event/:id							controllers.EventController.deleteEvent(id:Long)
+
+POST	/loadd/image/          				controllers.Application.upload()
+GET		/loadd/index/						controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET		/images/*file				 controllers.ScalaFileUploadController.at(file:String)
+DELETE	/events/admin/:id			controllers.EventController.deleteEvent(id:Long)
+PUT		/events/admin/:id			controllers.EventController.updateEvent(id:Long)

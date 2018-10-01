@@ -1,0 +1,19 @@
+@import models.data._
+
+@import helper._
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create new Event</title>
+    </head>
+    <body>
+	   	<div >
+			@helper.form(action = routes.Application.upload, 'enctype -> "multipart/form-data") {
+			<input type="file" name="picture">
+			<p>
+				<input type="submit">
+			</p>
+			}
+	    </div>
+    </body>
+</html>
